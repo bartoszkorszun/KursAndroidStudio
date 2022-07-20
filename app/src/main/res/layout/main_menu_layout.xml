@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="40dp">
+
+    <Spinner
+        android:id="@+id/car_choose_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/go_to_tank_form_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_gas_tankup"
+        android:text="@string/new_gasTankUp" />
+
+    <Button
+        android:id="@+id/go_to_repair_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_car_repair"
+        android:text="@string/new_repair" />
+
+    <Button
+        android:id="@+id/go_to_colission_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_mood_bad"
+        android:text="@string/new_collision" />
+
+    <Button
+        android:id="@+id/add_new_car_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/ic_add"
+        android:text="@string/add_new_car" />
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/grey">
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textSize="14sp"
+            style="@style/LabelTextView"/>
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:textSize="14sp"
+            android:longClickable="false"
+            android:focusable="false"
+            style="@style/CommonEditTextStyle"/>
+
+        <TextView
+            android:id="@+id/mileage_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mileage"
+            android:textSize="14sp"
+            style="@style/LabelTextView"/>
+
+        <EditText
+            android:id="@+id/mileage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="14sp"
+            style="@style/CommonEditTextStyle"/>
+
+        <TextView
+            android:id="@+id/liters_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/liters"
+            android:textSize="14sp"
+            style="@style/LabelTextView"/>
+
+        <EditText
+            android:id="@+id/liters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="14sp"
+            style="@style/CommonEditTextStyle"/>
+
+        <TextView
+            android:id="@+id/cost_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cost"
+            android:textSize="14sp"
+            style="@style/LabelTextView"/>
+
+        <EditText
+            android:id="@+id/cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="14sp"
+            style="@style/CommonEditTextStyle"/>
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:textSize="14sp"
+            style="@style/ButtonStyle"/>
+
+    </LinearLayout>
+
+</LinearLayout>
