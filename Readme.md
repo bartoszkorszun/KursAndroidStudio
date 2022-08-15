@@ -1,1 +1,1 @@
-This is a projest that has been done while attending the Android Studio course on Udemy. This is a simple app for keeping your car statistics etc. It was fun. I'm looking forward to biulding an app from scratch by myself :)
+This is a projest that has been done while attending the Android Studio course on Udemy.com. This is a simple app for keeping your car statistics etc. It was fun. I'm looking forward to biulding an app from scratch by myself :)
