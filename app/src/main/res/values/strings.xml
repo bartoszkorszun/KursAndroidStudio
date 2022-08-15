@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">CarCheck</string>
-    <string name="date">Data</string>
-    <string name="mileage">Przebieg</string>
-    <string name="liters">Zatankowane litry</string>
-    <string name="cost">Koszt tankowania</string>
-    <string name="confirm">Zatwierdź</string>
-    <string name="go_to_tank_form_button">Przejdź do tankowania</string>
-    <string name="make">Marka</string>
+    <string name="date">Date</string>
+    <string name="mileage">Mileage</string>
+    <string name="liters">Liters</string>
+    <string name="cost">Cost</string>
+    <string name="confirm">Confirm</string>
+    <string name="go_to_tank_form_button">Go to tank form</string>
+    <string name="make">Make</string>
     <string name="model">Model</string>
-    <string name="color">Kolor</string>
+    <string name="color">Color</string>
     <string name="make_demo">Skoda</string>
     <string name="model_demo">Kodiaq</string>
     <string name="color_demo">Black Metalic</string>
-    <string name="new_gasTankUp">Nowe Tankowanie</string>
-    <string name="new_repair">Nowa Naprawa</string>
-    <string name="new_collision">Nowa Kolizja</string>
-    <string name="add_new_car">Nowe auto</string>
+    <string name="new_gasTankUp">Tank Up</string>
+    <string name="new_repair">New Repair</string>
+    <string name="new_collision">New Colission</string>
+    <string name="add_new_car">New Car</string>
 </resources>

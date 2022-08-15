@@ -32,7 +32,9 @@ public class AutoData implements Serializable {
         this.make = make;
     }
 
-    public String getModel() {return model;}
+    public String getModel() {
+        return model;
+    }
 
     public void setModel(String model) {
         this.model = model;

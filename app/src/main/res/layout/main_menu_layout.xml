@@ -1,42 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="40dp">
+    android:layout_margin="10dp">
 
     <Spinner
         android:id="@+id/car_choose_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="48dp"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/go_to_tank_form_button"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_recycle_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_gas_tankup"
-        android:text="@string/new_gasTankUp" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
-    <Button
-        android:id="@+id/go_to_repair_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_car_repair"
-        android:text="@string/new_repair" />
+        android:layout_height="120dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="@+id/go_to_tank_form_button"
+        app:layout_constraintStart_toEndOf="@+id/go_to_tank_form_button">
 
-    <Button
-        android:id="@+id/go_to_colission_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_mood_bad"
-        android:text="@string/new_collision" />
+        <Button
+            android:id="@+id/go_to_tank_form_button"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_gas_tankup"
+            android:text="@string/new_gasTankUp"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/go_to_repair_button"
+            app:layout_constraintStart_toEndOf="@+id/go_to_colission_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/add_new_car_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableTop="@drawable/ic_add"
-        android:text="@string/add_new_car" />
+        <Button
+            android:id="@+id/go_to_repair_button"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_car_repair"
+            android:text="@string/new_repair"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/add_new_car_button"
+            app:layout_constraintStart_toEndOf="@+id/go_to_tank_form_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/go_to_colission_button"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_mood_bad"
+            android:text="@string/new_collision"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/go_to_tank_form_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/add_new_car_button"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/ic_add"
+            android:text="@string/add_new_car"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/go_to_repair_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

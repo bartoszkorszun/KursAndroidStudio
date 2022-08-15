@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/add_car_layout.xml" value="0.2477355072463768" />
         <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/gas_tank_up_layout.xml" value="0.2477355072463768" />
-        <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/main_menu_layout.xml" value="0.2477355072463768" />
+        <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/gps_layout.xml" value="0.20427350427350427" />
+        <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/main_menu_layout.xml" value="0.1" />
+        <entry key="..\:/Workspace/AndroidStudio/Kurs/CarCheck/app/src/main/res/layout/single_history_item.xml" value="0.20512820512820512" />
       </map>
     </option>
   </component>

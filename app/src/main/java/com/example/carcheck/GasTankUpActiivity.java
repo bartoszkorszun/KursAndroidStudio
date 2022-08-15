@@ -1,6 +1,8 @@
 package com.example.carcheck;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,7 +31,9 @@ import java.util.GregorianCalendar;
 
 public class GasTankUpActiivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    public static String newTankUpRecord = "New Tank Up Record";
     private final String new_tank_up = "New Tank Up";
+    private final String autoDataObject = "Auto Data Object";
     private EditText dateEditText, mileageEditText, litersEditText, costEditText;
     private Button confirmButton;
     private AutoData autoData;
@@ -40,6 +45,9 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            autoData = (AutoData) savedInstanceState.get(autoDataObject);
+        }
         setContentView(R.layout.gas_tank_up_layout);
         obtainExtras();
         viewInit();
@@ -79,9 +87,12 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
             @Override
             public void onClick(View view) {
 
-                if (validateMileage()){
+                if (validateMileage() && validateCost() && validateLiters()) {
                     TankUpRecord tank = new TankUpRecord(getDateEditTextDate(), getMileageDouble(), getLitersDouble(), getCostDouble());
-                    autoData.getTankUpRecord().add(tank);
+                    Intent intent = new Intent();
+                    intent.putExtra(newTankUpRecord, tank);
+                    setResult(Activity.RESULT_OK, intent);
+                    finish();
                 }
             }
         });
@@ -89,7 +100,7 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
         mileageEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (b == false){
+                if (b == false) {
                     validateMileage();
                 }
             }
@@ -98,7 +109,7 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
         costEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (b == false){
+                if (b == false) {
                     validateCost();
                 }
             }
@@ -107,7 +118,7 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
         litersEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if (b == false){
+                if (b == false) {
                     validateLiters();
                 }
             }
@@ -115,15 +126,15 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
     }
 
     private boolean validateCost() {
-        if (TextUtils.isEmpty(costEditText.getText())){
+        if (TextUtils.isEmpty(costEditText.getText())) {
             costEditTextLabel.setText("Koszt musi zostać podany!");
             costEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
-        }else if (Integer.valueOf(costEditText.getText().toString()) <= 0){
+        } else if (Integer.valueOf(costEditText.getText().toString()) <= 0) {
             costEditTextLabel.setText("Koszt musi być dodatni!");
             costEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
-        }else{
+        } else {
             costEditTextLabel.setText(getResources().getString(R.string.cost));
             costEditTextLabel.setTextColor(getResources().getColor(R.color.white));
             return true;
@@ -131,15 +142,15 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
     }
 
     private boolean validateLiters() {
-        if (TextUtils.isEmpty(litersEditText.getText())){
+        if (TextUtils.isEmpty(litersEditText.getText())) {
             litersEditTextLabel.setText("Litry muszą zostać podane!");
             litersEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
-        }else if (Integer.valueOf(litersEditText.getText().toString()) <= 0){
+        } else if (Integer.valueOf(litersEditText.getText().toString()) <= 0) {
             litersEditTextLabel.setText("Litry muszą być dodatnie!");
             litersEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
-        }else{
+        } else {
             litersEditTextLabel.setText(getResources().getString(R.string.liters));
             litersEditTextLabel.setTextColor(getResources().getColor(R.color.white));
             return true;
@@ -147,27 +158,27 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
     }
 
     private boolean validateMileage() {
-        if (TextUtils.isEmpty(mileageEditText.getText())){
+        if (TextUtils.isEmpty(mileageEditText.getText())) {
             mileageEditTextLabel.setText("Przebieg musi zostać podany!");
             mileageEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
         }
-        if (Integer.valueOf(mileageEditText.getText().toString()) <= 0){
+        if (Integer.valueOf(mileageEditText.getText().toString()) <= 0) {
             mileageEditTextLabel.setText("Przebieg musi być dodatni!");
             mileageEditTextLabel.setTextColor(getResources().getColor(R.color.red));
             return false;
         }
         int size = autoData.getTankUpRecord().size();
-        if (size != 0){
+        if (size != 0) {
 
             Double newMileage = Double.valueOf(mileageEditText.getText().toString());
             Double oldMileage = autoData.getTankUpRecord().get(size - 1).getMileage();
 
-            if (newMileage <= oldMileage){
+            if (newMileage <= oldMileage) {
                 mileageEditTextLabel.setText("Przebieg jest mniejszy lub równy niż poprzednio!");
                 mileageEditTextLabel.setTextColor(getResources().getColor(R.color.red));
                 return false;
-            }else{
+            } else {
                 mileageEditTextLabel.setText(getResources().getString(R.string.mileage));
                 mileageEditTextLabel.setTextColor(getResources().getColor(R.color.white));
                 return true;
@@ -203,7 +214,7 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
         return Double.valueOf(mileageEditText.getText().toString());
     }
 
-    private String getCurrentDate(){
+    private String getCurrentDate() {
 
         dateFormat = DateFormat.getDateInstance();
         Date date = new Date();
@@ -215,5 +226,12 @@ public class GasTankUpActiivity extends AppCompatActivity implements DatePickerD
 
         Calendar calendar = new GregorianCalendar(year, month, day);
         dateEditText.setText(dateFormat.format(calendar.getTime()));
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+
+        outState.putSerializable(autoDataObject, autoData);
+        super.onSaveInstanceState(outState);
     }
 }
